@@ -1,14 +1,32 @@
 
 import { TabBar } from 'antd-mobile'
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './Footer.scss'
 import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 function Footer(props) {
-  // 是否隐藏
-  let [hidden, setHidden] = useState(false);
   const [selectedTab, setSelectedTab] = useState("home")
-  console.log("props", props)
+  const [items, setItems] = useState([
+    {
+      title: "首页",
+      key: "home",
+      iconName: "iconfont iconyemian",
+      link: '/'
+    },
+    {
+      title: "订单",
+      key: "order",
+      iconName: "iconfont iconorder",
+      link: '/orders'
+    },
+    {
+      title: "我的",
+      key: "profile",
+      iconName: "iconfont iconxiyuan04",
+      link: '/user'
+    },
+  ])
 
   return (
     <div className="footer">
@@ -16,91 +34,48 @@ function Footer(props) {
         unselectedTintColor="#000000"
         tintColor="#33A3F4"
         barTintColor="white"
-        hidden={hidden}
+        hidden={!props.show}
       >
-        <TabBar.Item
-          title="首页"
-          key="home"
-          icon={<div style={{
-            width: '22px',
-            height: '22px'
-          }}
-            className="iconfont iconyemian"
-          />
-          }
-          selectedIcon={<div style={{
-            width: '22px',
-            height: '22px',
-            color: '#33A3F4'
-          }}
-            className="iconfont iconyemian"
-          />
-          }
-          selected={selectedTab === 'home'}
-          onPress={() => {
-            setSelectedTab("home")
-            props?.history?.push("/")
-          }}
-        >
-        </TabBar.Item>
-        <TabBar.Item
-          icon={
-            <div style={{
-              width: '22px',
-              height: '22px'
-            }}
-
-              className="iconfont iconorder"
-            />
-          }
-          selectedIcon={
-            <div style={{
-              width: '22px',
-              height: '22px',
-              color: '#33A3F4'
-            }}
-              className="iconfont iconorder"
-            />
-          }
-          title="订单"
-          key="order"
-          selected={selectedTab === 'order'}
-          onPress={() => {
-            setSelectedTab("order")
-            props?.history?.push("/orders")
-          }}
-        >
-        </TabBar.Item>
-        <TabBar.Item
-          icon={
-            <div style={{
-              width: '22px',
-              height: '22px'
-            }}
-              className="iconfont iconxiyuan04"
-            />
-          }
-          selectedIcon={
-            <div style={{
-              width: '22px',
-              height: '22px',
-              color: '#33A3F4'
-            }}
-              className="iconfont iconxiyuan04"
-            />
-          }
-          title="我的"
-          key="profile"
-          selected={selectedTab === 'profile'}
-          onPress={() => {
-            setSelectedTab("profile")
-            props?.history?.push("/user")
-          }}
-        >
-        </TabBar.Item>
+        {
+          items.map((item) => (
+            <TabBar.Item
+              title={item.title}
+              key={item.key}
+              icon={<div style={{
+                width: '22px',
+                height: '22px'
+              }}
+                className={item.iconName}
+              />
+              }
+              selectedIcon={<div style={{
+                width: '22px',
+                height: '22px',
+                color: '#33A3F4'
+              }}
+                className={item.iconName}
+              />
+              }
+              selected={selectedTab === item.title}
+              onPress={() => {
+                props.history.push(item.link)
+                setSelectedTab(item.title)
+              }}
+            >
+            </TabBar.Item>)
+          )
+        }
       </TabBar>
     </div>
   );
+}
+
+Footer.defaultProps = {
+  show: true
+}
+
+Footer.propTypes = {
+  show: PropTypes.bool
 }
 
 export default withRouter(Footer)
