@@ -1,0 +1,16 @@
+@import "../../../assets/style/config.scss";
+
+.header {
+  .am-navbar-dark {
+    .am-navbar-title {
+      font-weight: 600 !important;
+    }
+
+    .am-navbar-right {
+      font-size: 14px;
+      a {
+        color: #ffffff;
+      }
+    }
+  }
+}

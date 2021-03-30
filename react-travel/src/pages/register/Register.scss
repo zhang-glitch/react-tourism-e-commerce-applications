@@ -1,0 +1,22 @@
+.register {
+  width: 100%;
+  height: 250px;
+  background-image: url("../../assets/image/bgregister.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .register-wrapper {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .am-list-item {
+      margin-top: 30px;
+    }
+
+    .am-button {
+      margin-top: 30px;
+    }
+  }
+}
