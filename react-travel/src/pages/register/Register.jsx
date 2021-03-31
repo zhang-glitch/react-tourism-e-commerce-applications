@@ -29,6 +29,7 @@ export default function Register() {
     <div className="register">
       <NavBar
         mode="dark"
+        leftContent={<Link to="/" style={{ color: '#ffffff' }}><span className="iconfont iconyemian" style={{ fontSize: "18px" }}></span></Link>}
         rightContent={[
           <span style={{ marginRight: '16px' }} className="login-btn" key="login "><Link to="/login" style={{ color: '#ffffff' }}>登录</Link></span>
         ]}

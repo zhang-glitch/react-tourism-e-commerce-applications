@@ -9,7 +9,6 @@ import User from './pages/user/User.jsx'
 import Edit from './pages/user/Edit.jsx'
 import Layout from './components/layout/Layout.jsx'
 
-
 export default function AppRouter() {
   return (
     <Router>

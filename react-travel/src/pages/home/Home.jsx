@@ -2,6 +2,7 @@
 import Header from './components/Header'
 import Hot from './components/Hot'
 import Search from './components/Search'
+import httpRequest from '../../utils/httpRequest'
 export default function Home() {
 
 
