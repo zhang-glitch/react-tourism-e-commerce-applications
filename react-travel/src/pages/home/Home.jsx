@@ -2,15 +2,14 @@
 import Header from './components/Header'
 import Hot from './components/Hot'
 import Search from './components/Search'
-import httpRequest from '../../utils/httpRequest'
 export default function Home() {
 
 
   return (
     <div>
       <Header></Header>
-      <Hot></Hot>
       <Search></Search>
+      <Hot></Hot>
     </div>
   )
 }

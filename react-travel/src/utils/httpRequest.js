@@ -17,6 +17,7 @@ export default function httpRequest(requestUrl = "", requestData = {}) {
       config.headers = {
         "token": localStorage.getItem("token")
       }
+      return config;
     }
   })
 

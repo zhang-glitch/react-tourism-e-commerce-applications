@@ -16,10 +16,12 @@ export default class Header extends React.Component {
   }
 
   componentDidMount() {
-    store.subscribe(() => this.setState(store.getState()))
-    if (this.state.user?.user.username) {
+    store.subscribe(() => this.setState({
+      user: store.getState(),
+      isLogin: false
+    }))
+    if (this.state.user?.user?.username) {
       this.setState(state => {
-        console.log("state", state)
         return {
           isLogin: true,
           user: state.user
@@ -38,7 +40,7 @@ export default class Header extends React.Component {
               <span style={{ marginRight: '16px' }} className="login-btn" ><Link to="/login">登录</Link></span>
               <span className="register-btn" ><Link to="/register" >注册</Link></span>
             </div>,
-            <div key="login" style={{ display: this.state.isLogin ? "inline" : "none" }}>{this.state.user?.user.username}</div>
+            <div key="login" style={{ display: this.state.isLogin ? "inline" : "none" }}>{this.state.user?.user?.username}</div>
           ]}
         >民宿</NavBar>
       </div>

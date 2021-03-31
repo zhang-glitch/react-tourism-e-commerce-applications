@@ -16,7 +16,7 @@ export default function AppRouter() {
       <Route path="/orders" component={Orders} ></Route>
       <Route path="/login" component={Login} ></Route>
       <Route path="/register" component={Register} ></Route>
-      <Route path="/house" component={House} ></Route>
+      <Route path="/house/:id" component={House} ></Route>
       <Route path="/search" component={Search} ></Route>
       <Route path="/user" component={User} ></Route>
       <Route path="/edit" component={Edit} ></Route>

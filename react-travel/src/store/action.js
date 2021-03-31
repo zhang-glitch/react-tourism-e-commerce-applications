@@ -7,3 +7,10 @@ export function user(data) {
     data
   }
 }
+
+export function searchData(data) {
+  return {
+    type: ActiveTypes.SEARCH_DATE,
+    data
+  }
+}
