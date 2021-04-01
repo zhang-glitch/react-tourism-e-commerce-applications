@@ -1,0 +1,54 @@
+.search {
+  .am-navbar {
+    .am-navbar-left {
+      width: 20% !important;
+      flex: 0 0 !important;
+      padding: 15px;
+    }
+
+    .am-navbar-title {
+      flex: 1 1 !important;
+
+      .am-search {
+        width: 100% !important;
+      }
+    }
+
+    .am-navbar-right {
+      flex: 0 0 !important;
+      margin-right: 0;
+    }
+  }
+
+  .item-wrapper {
+    display: flex;
+    justify-content: space-around;
+
+    .img-wrapper {
+      width: 30%;
+      border-radius: 5px !important;
+      margin-right: 30px !important;
+
+      img {
+        border-radius: 5px !important;
+      }
+    }
+
+    .item-info {
+      flex: 1 1;
+
+      .title,
+      .info {
+        margin: 5px 0;
+      }
+
+      .info {
+        color: #ccc;
+      }
+
+      .price {
+        color: #e96262;
+      }
+    }
+  }
+}

@@ -24,7 +24,16 @@ function Search(props) {
         ...searchData(result.data)
       })
       // 跳转到search页面
-      props.history.push("/search");
+      props.history.push({
+        pathname: '/search',
+        query: {
+          code: "10001",
+          startTime: startDate.getTime(),
+          endTime: endDate.getTime(),
+          pageNum: 1,
+          pageSize: 8
+        }
+      });
     });
   }
 

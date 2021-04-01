@@ -9,7 +9,7 @@ let defaultState = {
     sign: '',
     username: ''
   },
-  searchData: {}
+  searchData: []
 };
 
 export default function reducer(state = defaultState, action) {
@@ -21,7 +21,8 @@ export default function reducer(state = defaultState, action) {
       return newState;
 
     case ActiveTypes.SEARCH_DATE:
-      newState.searchData = action.data;
+      newState.searchData.push(...action.data)
+      newState.searchData = Array.from(new Set(newState.searchData));
       return newState
     default:
       return state;

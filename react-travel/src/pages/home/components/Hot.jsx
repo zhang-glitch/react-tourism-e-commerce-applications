@@ -10,9 +10,7 @@ export default function Hot() {
   useEffect(async () => {
     let { data } = await httpRequest('/house/hot');
     // 将数据分成两份
-    setHotList([data.slice(0, 2), data.slice(2)])
-
-    console.log(data)
+    data && setHotList([data.slice(0, 2), data.slice(2)])
   }, [])
   return (
     <div className="hot">
