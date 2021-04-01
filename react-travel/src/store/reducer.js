@@ -7,9 +7,10 @@ let defaultState = {
     id: '',
     phone: '',
     sign: '',
-    username: ''
+    username: '',
+    psw: ""
   },
-  searchData: []
+  searchData: [],
 };
 
 export default function reducer(state = defaultState, action) {
@@ -23,7 +24,9 @@ export default function reducer(state = defaultState, action) {
     case ActiveTypes.SEARCH_DATE:
       newState.searchData.push(...action.data)
       newState.searchData = Array.from(new Set(newState.searchData));
-      return newState
+      return newState;
+
+
     default:
       return state;
   }

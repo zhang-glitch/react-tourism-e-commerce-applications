@@ -14,6 +14,7 @@ function Login(props) {
   const [password, setPassword] = useState("")
 
   const handleLogin = async () => {
+
     const result = await httpRequest('/user/login', {
       username,
       password
@@ -24,7 +25,10 @@ function Login(props) {
       props.history.push("/")
       // 将数据存储到redux中
       store.dispatch({
-        ...user(result.data)
+        ...user({
+          ...result.data,
+          psw: password
+        })
       })
     } else {
       Toast.fail("用户名或者密码错误");
