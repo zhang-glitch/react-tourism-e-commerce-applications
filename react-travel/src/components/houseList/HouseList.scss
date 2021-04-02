@@ -1,0 +1,53 @@
+.house-list {
+  .item-wrapper {
+    display: flex;
+    justify-content: space-around;
+
+    .img-wrapper {
+      width: 30%;
+      border-radius: 5px !important;
+      margin-right: 30px !important;
+
+      img {
+        border-radius: 5px !important;
+      }
+    }
+
+    .item-info {
+      flex: 1 1;
+
+      .title,
+      .info {
+        margin: 5px 0;
+      }
+
+      .info {
+        color: #ccc;
+      }
+
+      .price-pay {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .price {
+          color: #e96262;
+        }
+
+        .pay-btn {
+          display: inline-block;
+          border-radius: 4px;
+          background: #e96262;
+          color: #ffffff;
+          font-size: 16px;
+          height: 0;
+          line-height: 0;
+          padding: 15px 8px;
+        }
+      }
+      .time {
+        color: #ccc;
+        margin-top: 5px;
+      }
+    }
+  }
+}

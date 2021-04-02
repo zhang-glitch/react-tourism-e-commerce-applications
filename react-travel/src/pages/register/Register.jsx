@@ -1,6 +1,6 @@
 
 import httpRequest from '../../utils/httpRequest'
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { InputItem, NavBar, Button, Toast } from 'antd-mobile'
 import { Link } from 'react-router-dom'
 import './Register.scss'

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './pages/home/Home.jsx'
 import Login from './pages/login/Login.jsx'
 import Orders from './pages/order/Orders.jsx'

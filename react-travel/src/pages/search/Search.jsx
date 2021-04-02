@@ -1,13 +1,14 @@
 
 import store from '../../store/index'
 import { useEffect, useState } from 'react'
-import { SearchBar, NavBar, Flex, Card, Toast } from 'antd-mobile'
+import { SearchBar, NavBar, Toast } from 'antd-mobile'
 import httpRequest from '../../utils/httpRequest';
 import { withRouter, Link } from 'react-router-dom';
 import { searchData } from '../../store/action'
 import "./Search.scss"
 import ShowLoading from '../../components/showloading/ShowLoading'
 import useLoading from '../../hooks/useLoading'
+import HouseList from '../../components/houseList/HouseList'
 
 
 
@@ -85,34 +86,7 @@ function Search(props) {
       {
         searchDataList.searchData.length === 0 ? <div style={{ textAlign: "center", marginTop: '60px' }}>~暂无数据~</div> :
           <div className="search-list">
-            {
-              searchDataList.searchData.map((item, index) => {
-                return (
-                  <Flex style={{ margin: '10px' }}
-                    key={index}
-                  >
-                    <Flex.Item>
-                      <Card>
-                        <Card.Body>
-                          <div className="item-wrapper">
-                            <div className="img-wrapper">
-                              <Link to={"/house/" + item.id} >
-                                <img src={item.imgs[0].url} alt="" />
-                              </Link>
-                            </div>
-                            <div className="item-info">
-                              <div className="title">{item.name}</div>
-                              <div className="info">{item.info}</div>
-                              <div className="price">￥ {item.price}</div>
-                            </div>
-                          </div>
-                        </Card.Body>
-                      </Card>
-                    </Flex.Item>
-                  </Flex>
-                )
-              })
-            }
+            <HouseList list={searchDataList.searchData} />
           </div>
       }
       {/* 上拉加载 */}

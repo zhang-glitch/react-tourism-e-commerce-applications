@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 
 function Footer(props) {
   const [selectedTab, setSelectedTab] = useState("home")
-  const [items, setItems] = useState([
+  const [items] = useState([
     {
       title: "首页",
       key: "home",
