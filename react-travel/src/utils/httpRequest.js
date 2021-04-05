@@ -1,3 +1,4 @@
+import { Toast } from 'antd-mobile';
 import axios from 'axios';
 
 export default function httpRequest(requestUrl = "", requestData = {}) {
@@ -29,11 +30,12 @@ export default function httpRequest(requestUrl = "", requestData = {}) {
       }
       return config.data
     } else if (config.data.status === 500) {
-      return config.data.errMsg
+      Toast.fail(config?.data?.data?.errMsg)
+      return config.data
     } else if (config.data.status === 1001) {
       return config.data.data
     } else {
-      return config.data.errMsg
+      return config.data
     }
   })
 

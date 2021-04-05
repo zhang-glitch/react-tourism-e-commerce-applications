@@ -55,7 +55,7 @@ function Search(props) {
           houseName,
           pageNum
         })
-        console.log("result", result)
+        // console.log("result", result)
         if (Array.isArray(result.data)) {
           // 更新store的数据
           store.dispatch({

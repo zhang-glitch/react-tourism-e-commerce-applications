@@ -1,0 +1,46 @@
+.comment {
+  margin-top: 20px;
+  .comment-wrapper {
+    display: flex;
+    margin-top: 20px;
+
+    .comment-img {
+      width: 30%;
+      text-align: center;
+      img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+      }
+    }
+
+    .comment-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      .info-top {
+        margin: 10px 0;
+        .info-top-name {
+          margin-right: 8px;
+          color: #000000;
+        }
+
+        .info-top-time {
+          color: #ccc;
+        }
+      }
+    }
+  }
+
+  .add-comment {
+    width: 100%;
+    height: 30px;
+    background: #eee;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    line-height: 30px;
+    color: #ccc;
+  }
+}

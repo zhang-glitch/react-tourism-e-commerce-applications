@@ -1,0 +1,34 @@
+@import "../../../assets/style/config.scss";
+
+.house-info {
+  .house-info-wrapper {
+    padding: 10px 20px;
+
+    .house-info-name,
+    .house-price,
+    .house-publish,
+    .house-start,
+    .house-end {
+      margin: 10px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .house-price,
+    .house-end {
+      color: $bg-color;
+    }
+
+    .pre-btn {
+      background: $bg-color;
+      padding: 10px 40px;
+      text-align: center;
+      border: #ffffff;
+      border-radius: 20px;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 18px;
+      margin: 20px 0;
+    }
+  }
+}

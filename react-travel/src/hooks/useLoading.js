@@ -15,6 +15,7 @@ export default function useLoading(ele, callback, watch = []) {
 
         // 停止监听
         io.disconnect();
+
       }
     }
   }, watch)

@@ -23,7 +23,7 @@ export default function HouseList(props) {
   return (
     <div className="house-list">
       {
-        Array.isArray(list) && list.map((item, index) => {
+        list && list.map((item, index) => {
           return (
             <Flex style={{ margin: '10px' }}
               key={index}
@@ -46,7 +46,7 @@ export default function HouseList(props) {
                           <div className="price">￥ {item.price}</div>
                           {/* 这里的事件获取不到item，只能将item.ordersId绑定在id上，然后通过事件对象取出 */}
                           {
-                            item.startTime ? <div className="pay-btn" id={item.ordersId} onClick={(e) => { handlePay(e.target.id) }}>去支付{item.ordersId}</div> : null
+                            (item.startTime && props.type === "0") ? <div className="pay-btn" id={item.ordersId} onClick={(e) => { handlePay(e.target.id) }}>去支付</div> : null
                           }
                         </div>
 
@@ -67,5 +67,6 @@ export default function HouseList(props) {
 }
 
 HouseList.propTypes = {
-  list: PropTypes.array
+  list: PropTypes.array,
+  type: PropTypes.string
 }

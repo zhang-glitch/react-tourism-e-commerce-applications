@@ -13,6 +13,8 @@ export default function ShowLoading(props) {
     </div>
   )
 }
+
+
 ShowLoading.defaultProps = {
   showLoading: true,
   hiddenText: false,

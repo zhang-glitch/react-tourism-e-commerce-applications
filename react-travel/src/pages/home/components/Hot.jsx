@@ -2,15 +2,20 @@
 
 import httpRequest from '../../../utils/httpRequest';
 import { useEffect, useState } from 'react';
-import { Flex, Card } from 'antd-mobile'
+import { Flex, Card, Toast } from 'antd-mobile'
 import './Hot.scss'
 import { Link } from 'react-router-dom'
 export default function Hot() {
   const [hotList, setHotList] = useState([]);
   useEffect(async () => {
-    let { data } = await httpRequest('/house/hot');
-    // 将数据分成两份
-    data && setHotList([data.slice(0, 2), data.slice(2)])
+    let result = await httpRequest('/house/hot');
+    if (result === '用户未登录') {
+      Toast.fail(result)
+    } else {
+
+      // 将数据分成两份
+      Array.isArray(result?.data) && setHotList([result?.data?.slice(0, 2), result?.data?.slice(2)])
+    }
   }, [])
   return (
     <div className="hot">

@@ -1849,6 +1849,11 @@
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.0.tgz#7036640b4e21cc2f259ae826ce843d277dad8cff"
   integrity sha512-RJJrrySY7A8havqpGObOB4W92QXKJo63/jFLLgpvOtsGUqbQZ9Sbgl35KMm1DjC6j7AvmmU2bIno+3IyEaemaw==
 
+"@types/swiper@^5.3.2":
+  version "5.4.2"
+  resolved "https://registry.npm.taobao.org/@types/swiper/download/@types/swiper-5.4.2.tgz#ff206cf5aea787f580b5dd9b466b4bcb8e0442f3"
+  integrity sha1-/yBs9a6nh/WAtd2bRmtLy44EQvM=
+
 "@types/tapable@*", "@types/tapable@^1.0.5":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.6.tgz#a9ca4b70a18b270ccb2bc0aaafefd1d486b7ea74"
@@ -4327,6 +4332,13 @@ dom-serializer@0:
   dependencies:
     domelementtype "^2.0.1"
     entities "^2.0.0"
+
+dom7@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.npm.taobao.org/dom7/download/dom7-2.1.5.tgz#a79411017800b31d8400070cdaebbfc92c1f6377"
+  integrity sha1-p5QRAXgAsx2EAAcM2uu/ySwfY3c=
+  dependencies:
+    ssr-window "^2.0.0"
 
 domain-browser@^1.1.1:
   version "1.2.0"
@@ -9591,6 +9603,14 @@ react-app-rewired@^2.1.8:
   dependencies:
     semver "^5.6.0"
 
+react-awesome-swiper@^1.4.16:
+  version "1.4.16"
+  resolved "https://registry.npm.taobao.org/react-awesome-swiper/download/react-awesome-swiper-1.4.16.tgz#ebda871b0df95ffacf5cff3f4082f00fc8099fcc"
+  integrity sha1-69qHGw35X/rPXP8/QILwD8gJn8w=
+  dependencies:
+    "@types/swiper" "^5.3.2"
+    swiper "^5.4.3"
+
 react-dev-utils@^11.0.3:
   version "11.0.3"
   resolved "https://registry.npm.taobao.org/react-dev-utils/download/react-dev-utils-11.0.3.tgz#b61ed499c7d74f447d4faddcc547e5e671e97c08"
@@ -10953,6 +10973,11 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
+ssr-window@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npm.taobao.org/ssr-window/download/ssr-window-2.0.0.tgz#98c301aef99523317f8d69618f0010791096efc4"
+  integrity sha1-mMMBrvmVIzF/jWlhjwAQeRCW78Q=
+
 ssri@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.1.tgz#2a3c41b28dd45b62b63676ecb74001265ae9edd8"
@@ -11302,6 +11327,14 @@ svgo@^1.0.0, svgo@^1.2.2:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+swiper@^5.4.3:
+  version "5.4.5"
+  resolved "https://registry.npm.taobao.org/swiper/download/swiper-5.4.5.tgz?cache=0&sync_timestamp=1617251889332&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fswiper%2Fdownload%2Fswiper-5.4.5.tgz#a350f654bf68426dbb651793824925512d223c0f"
+  integrity sha1-o1D2VL9oQm27ZReTgkklUS0iPA8=
+  dependencies:
+    dom7 "^2.1.5"
+    ssr-window "^2.0.0"
 
 symbol-observable@^1.2.0:
   version "1.2.0"

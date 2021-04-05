@@ -1,4 +1,4 @@
-import { Tabs } from 'antd-mobile'
+import { Tabs, Toast } from 'antd-mobile'
 import { useEffect, useState } from 'react'
 import useLoading from '../../hooks/useLoading'
 import httpRequest from '../../utils/httpRequest'
@@ -26,13 +26,15 @@ export default function Orders() {
       pageSize: size,
       pageNum: num
     })
-    if (data) {
+    if (Array.isArray(data)) {
       data.forEach((item, index) => {
         data[index] = {
           ...item.house,
           ordersId: item.id
         }
       });
+    } else {
+      Toast.fail(data.errMsg)
     }
 
     // 只有第一次请求，数量较少才不现实文字的
@@ -40,6 +42,7 @@ export default function Orders() {
       // 判断是否隐藏文字
       if (Array.isArray(data) && data.length < size) {
         setHiddenText(true)
+        setIsLoading(false)
       } else {
         setHiddenText(false)
         setIsLoading(true)
@@ -58,31 +61,38 @@ export default function Orders() {
   const handleTabs = async (tab, index) => {
     // 未支付
     if (index === 0) {
-      setNum(1)
+      await setNum(1)
       // 改变setIsPay
       setIsPay(index)
       const data = await requestOrder(index, size, num)
-      setOrderList(data)
+      if (Array.isArray(data)) {
+        setOrderList(data)
+      }
     } else if (index === 1) {
-      setNum(1)
+      await setNum(1)
       // 改变setIsPay
       setIsPay(index)
       const data = await requestOrder(index, size, num)
-      setOrderList(data)
+      if (Array.isArray(data)) {
+        setOrderList(data)
+      }
     }
   }
 
-  // 上拉加载更多
+
+  // 上拉加载更多,未支付
   useLoading("#show-loading", async (entries) => {
+    // console.log("已经监听----未支付")
     if (entries[0].isIntersecting) {
       // 再次请求
       setNum(num + 1);
       if (num > 1) {
         const data = await requestOrder(isPay, size, num)
         if (Array.isArray(data)) {
+          // console.log("orederList", orderList)
           // 第一次请求的数据没有
-          setOrderList([...orderList, ...data])
-          if (data.length >= size) {
+          Array.isArray(orderList) && setOrderList([...orderList, ...data])
+          if (data.length === size) {
             // 设置loading为false。
             setIsLoading(true);
           } else {
@@ -92,20 +102,24 @@ export default function Orders() {
       }
     }
   }, null)
+
+
   return (
     <div className="orders">
       <Tabs
         tabs={tabs}
         onChange={handleTabs}
       >
+        {/* 未支付 */}
         <div style={{ backgroundColor: '#fff', padding: '1px' }}>
           {
-            orderList && <OrdersItem list={orderList} isLoading={isLoading} hiddenText={hiddenText} />
+            Array.isArray(orderList) && <OrdersItem list={orderList} isLoading={isLoading} hiddenText={hiddenText} type={"0"} />
           }
         </div>
+        {/* 已支付 */}
         <div style={{ backgroundColor: '#fff', padding: '1px' }}>
           {
-            orderList && <OrdersItem list={orderList} isLoading={isLoading} hiddenText={hiddenText} />
+            Array.isArray(orderList) && <OrdersItem list={orderList} isLoading={isLoading} hiddenText={hiddenText} type={"1"} />
           }
         </div>
       </Tabs>
