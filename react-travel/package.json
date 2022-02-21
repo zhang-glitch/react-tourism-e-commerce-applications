@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "antd-mobile": "^2.3.4",
     "axios": "^0.21.1",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-awesome-swiper": "^1.4.16",
